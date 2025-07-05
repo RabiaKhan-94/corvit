@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="Rabia's Python Calculator", page_icon="🧮", layout="centered")
 
 st.markdown(
-    "<h1 style='text-align: center; color: black;'>Python Calculator</h1>",
+    "<h1 style='text-align: center; color: black;'>Rabia's Python Calculator</h1>",
     unsafe_allow_html=True
 )
 
