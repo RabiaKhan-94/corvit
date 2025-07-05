@@ -1,19 +1,16 @@
 import streamlit as st
 
-# Page settings
+
 st.set_page_config(page_title="Python Calculator", page_icon="🧮", layout="centered")
 
-# Title
 st.markdown(
     "<h1 style='text-align: center; color: black;'>Python Calculator</h1>",
     unsafe_allow_html=True
 )
 
-# Session state for storing input expression
 if "expression" not in st.session_state:
     st.session_state.expression = ""
 
-# Button click handler
 def press(button):
     if button == "CE":
         st.session_state.expression = ""
@@ -26,7 +23,6 @@ def press(button):
     else:
         st.session_state.expression += str(button)
 
-# Calculator display
 st.markdown("""
     <style>
     .display-box {
@@ -69,10 +65,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Display expression in styled box
 st.markdown(f"<div class='display-box'>{st.session_state.expression}</div>", unsafe_allow_html=True)
 
-# Calculator button layout
 buttons = [
     ["7", "8", "9", "/"],
     ["4", "5", "6", "x"],
@@ -80,7 +74,6 @@ buttons = [
     ["0", "CE", "=", "+"]
 ]
 
-# Draw calculator buttons responsively
 for row in buttons:
     cols = st.columns(4)
     for i, label in enumerate(row):
@@ -95,7 +88,7 @@ for row in buttons:
             style = "number"
 
         with cols[i]:
-            # HTML + Streamlit button combo
+
             button_html = f"""
                 <button class="button {style}" onclick="fetch('/?{label}')">{label}</button>
             """
